@@ -42,14 +42,15 @@ while True:  # read one frame at a time, with while loop until error exit.
                     trackingObjects[trackId] = pt
                     trackId+=1
     else: 
-        currentCenterPointsCopy = currentCenterPoints.copy()
         for objectId, pt2 in trackingObjects.copy().items():
+            currentCenterPointsCopy = currentCenterPoints.copy()
             objectExists = False
             for pt in currentCenterPointsCopy:
                 distance = math.hypot(pt2[0]-pt[0], pt[1]-pt[1])
                 if distance<20:
                     trackingObjects[objectId] = pt
                     objectExists = True
+                    currentCenterPoints.remove(pt)
                     continue
 
 
@@ -58,20 +59,24 @@ while True:  # read one frame at a time, with while loop until error exit.
                 trackingObjects.pop(objectId)
 
 
+    for pt in currentCenterPoints:
+        trackingObjects[trackId] = pt
+        trackId+=1
+
+
     for objectId, pt in trackingObjects.items():
         cv2.circle(frame, pt, 5, (0, 0, 255), -1) # frame, center coords, radius, color bgr, thickness (-1 means solid fill)
         cv2.putText(frame, str(objectId), (pt[0], pt[1]-7), 0, 1, (0, 0, 255), 2)
 
     print(trackingObjects)
-    print('curr pts\n', currentCenterPoints)
-    print('prev pts\n', centerPointsPrevious)
+    print('current frame left pts\n', currentCenterPoints)
 
     centerPointsPrevious = currentCenterPoints.copy()
 
     # * CHANGING FRAMES HERE
     cv2.imshow("Frame", frame)  # show the frame in window 
     # cv2.waitKey(0) # wait for keydown to move to next iteration
-    key = cv2.waitKey(0)
+    key = cv2.waitKey(1)
     if key==27:
         break
 

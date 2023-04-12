@@ -8,10 +8,12 @@ od = ObjectDetection()
 cap = cv2.VideoCapture("idk.mp4")
 objects_tracked = [] # TODO: [[x, y], frameOccurenceNumberInLoop]
 
+frameCount = 0
+
 while True:
     ret, frame = cap.read()
-
     current_centres = []
+    frameCount+=1
 
     # * DETECT OBJECTS ON THE FRAME AND DRAW RECTANGLES
     (class_ids, scores, boxes) = od.detect(frame)
@@ -20,9 +22,14 @@ while True:
         cx = int((x+x+w)/2)
         cy = int((y+y+h)/2)
         current_centres.append((cx, cy))
-        # print(f"frame {frameCount} box: ", x, y, w, h)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)  # frame, topleft, bottomright, color bgr, thickness
     print(current_centres)
+
+    if frameCount <= 2:
+        pass 
+    else: 
+        
+
         
 
     # * CHANGING FRAMES HERE

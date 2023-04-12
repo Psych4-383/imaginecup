@@ -36,4 +36,3 @@ class ObjectDetection:
 
     def detect(self, frame):
         return self.model.detect(frame, nmsThreshold=self.nmsThreshold, confThreshold=self.confThreshold)
-

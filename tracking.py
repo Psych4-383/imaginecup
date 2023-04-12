@@ -5,7 +5,7 @@ import math
 
 od = ObjectDetection()
 
-cap = cv2.VideoCapture("idk.mp4")
+cap = cv2.VideoCapture("idk4.mp4")
 objects_tracked = [] # TODO: [[x, y], frameOccurenceNumberInLoop]
 
 while True:

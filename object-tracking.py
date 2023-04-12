@@ -7,7 +7,7 @@ import math
 # Init object detection
 od = ObjectDetection()
 
-cap = cv2.VideoCapture("los_angeles.mp4") # load the video element
+cap = cv2.VideoCapture("idk4.mp4") # load the video element
 
 #init count
 
@@ -47,7 +47,7 @@ while True:  # read one frame at a time, with while loop until error exit.
             objectExists = False
             for pt in currentCenterPointsCopy:
                 distance = math.hypot(pt2[0]-pt[0], pt[1]-pt[1])
-                if distance<20:
+                if distance<15:
                     trackingObjects[objectId] = pt
                     objectExists = True
                     currentCenterPoints.remove(pt)

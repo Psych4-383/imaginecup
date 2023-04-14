@@ -16,14 +16,6 @@ centerPointsPrevious = []
 trackingObjects = {}
 trackId = 0
 
-def extendSlope(){
-    distX = pt1[0]-pt2[0]
-    distY = pt1[1]-pt2[1]
-    pt3 = (pt2[0]+distX, pt2[1]+distY)
-    return pt3
-}
-
-
 while True:  # read one frame at a time, with while loop until error exit.
     ret, frame = cap.read() # read the frame => boolean, frame
     frameCount+=1

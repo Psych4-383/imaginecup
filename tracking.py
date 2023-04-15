@@ -62,6 +62,7 @@ while True:
                                     obj.append(cur_point)
                                     obj.append(predicted_center_third_frame)
                                     obj[0] += 1
+                                    cv2.circle(frame, obj[3], 5, (255, 0, 255), -1)           # prpl for predicted location
                                     print('second',obj)
                                 elif obj[0] == 2:                               # if it is third frame of object
                                     # TODO: draw circles at predicted and actual coordinates

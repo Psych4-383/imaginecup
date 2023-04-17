@@ -7,15 +7,15 @@ import os
 od = ObjectDetection()
 
 
-videoPath = os.path.join(os.getcwd() + "/video1.mp4")
+videoPath = os.path.join(os.getcwd() + "/vidd.mp4")
 print(videoPath)
 cap = cv2.VideoCapture(videoPath)
 
 
 # ! FUNCTIONS
 def extendSlope(pt1, pt2):
-    distX = abs(pt2[0]-pt1[0])
-    distY = abs(pt2[1]-pt1[1])
+    distX = (pt2[0]-pt1[0])
+    distY = (pt2[1]-pt1[1])
     pt3 = (pt2[0]+distX, pt2[1]+distY)
     pt4 = (pt3[0]+distX, pt3[1]+distY)
     pt5 = (pt4[0]+distX, pt4[1]+distY)
@@ -94,7 +94,7 @@ while True:
     # * CHANGING FRAMES HERE
     cv2.imshow("Frame", frame)  # show the frame in window
     # cv2.waitKey(0) # wait for keydown to move to next iteration
-    key = cv2.waitKey(0)
+    key = cv2.waitKey(1)
     if key == 27:
         break
 

@@ -31,6 +31,7 @@ pos1 = []
 pos2 = []
 pos3 = []
 dev = [0, 0]
+values = []
 
 while True:
     ret, frame = cap.read()
@@ -60,7 +61,8 @@ while True:
         dev = extendSlope(pos1, pos2, pos3)
         cx += dev[0]
         cy += dev[1]
-        cv2.circle(frame, (cx,cy), 5, (255, 255, 255), -1)
+        value = [cx, cy]
+        values.append(value)
         pos1[0] += dev[0]
         pos2[0] += dev[0]
         pos3[0] += dev[0]
@@ -74,8 +76,13 @@ while True:
         pos3 = []
         frameCount = 0
         dev = []
-
         
+    for i in values:
+        cx1, cy1 = i
+        cv2.circle(frame, (cx1,cy1), 5, (0, 0, 0), -1)
+        values.remove(i)
+
+    
     print(pos1, pos2, pos3)
 
 

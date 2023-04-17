@@ -94,7 +94,7 @@ while True:
     # * CHANGING FRAMES HERE
     cv2.imshow("Frame", frame)  # show the frame in window
     # cv2.waitKey(0) # wait for keydown to move to next iteration
-    key = cv2.waitKey(0)
+    key = cv2.waitKey(1)
     if key == 27:
         break
 

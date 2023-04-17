@@ -7,7 +7,7 @@ import os
 od = ObjectDetection()
 
 
-videoPath = os.path.join(os.getcwd() + "/vidd.mp4")
+videoPath = os.path.join(os.getcwd() + "/video1.mp4")
 print(videoPath)
 cap = cv2.VideoCapture(videoPath)
 

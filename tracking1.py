@@ -68,7 +68,7 @@ while True:
         pos3[0] += dev[0]
         pos1[1] += dev[1]
         pos2[1] += dev[1]
-        pos3[1] += dev[1]
+        pos3[1] += dev[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
         
     elif frameCount == 9:
         pos1 = []
